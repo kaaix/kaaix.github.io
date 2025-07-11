@@ -37,30 +37,28 @@ html {
   scroll-behavior: smooth;
 }
 
-/* —————————————————————————————————————
+/* —————————————————————————————
    3. Background full-screen fixe + overlay
-   ————————————————————————————————————— */
+   ————————————————————————————— */
 body {
-  /* Image fixe en arrière-plan couvrant tout l’écran */
+  /* image fixe couvrant tout l’écran */
   background: url('../images/APIXIT-cybersecurite-SASE-SSE.jpg')
               center/cover no-repeat fixed;
-  /* Texte en clair pour contraste */
-  color: #fff;
+  margin: 0;
   font-family: var(--font-base);
-  line-height: 1.6;
-  min-height: 100vh;
+  color: var(--fg);
 }
 
-/* Overlay sombre derrière tout le contenu */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
+  /* ajuste l’opacité pour garder le fond visible */
   background: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
-/* S’assurer que header, sections et footer passent au-dessus */
+/* assure le contenu au-dessus de l’overlay */
 .site-header,
 .section,
 .site-footer {
