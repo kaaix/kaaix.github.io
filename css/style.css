@@ -1,6 +1,6 @@
-/* =====================
-   Root Variables
-   ===================== */
+/* ============================
+   1. Root Variables
+   ============================ */
 :root {
   /* Colors */
   --bg: #121212;
@@ -21,9 +21,9 @@
   --h3-size: 1.75rem;
 }
 
-/* =====================
-   Global Reset
-   ===================== */
+/* ============================
+   2. Global Reset
+   ============================ */
 *,
 *::before,
 *::after {
@@ -38,13 +38,53 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
   font-family: var(--font-base);
   line-height: 1.6;
   min-height: 100vh;
+  color: var(--fg);
 }
 
+/* ============================
+   3. Background Image + Overlay
+   ============================ */
+body {
+  background-image: url('../images/APIXIT-cybersecurite-SASE-SSE.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* ============================
+   4. Content Wrapper
+   ============================ */
+.content-wrapper {
+  background: rgba(18, 18, 18, 0.8);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  max-width: 800px;
+  margin: 0 auto calc(var(--spacing) * 2);
+}
+.content-wrapper p,
+.content-wrapper li {
+  color: var(--fg);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.content-wrapper ul {
+  margin-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================
+   5. Links
+   ============================ */
 a {
   color: var(--accent);
   text-decoration: none;
@@ -54,35 +94,28 @@ a:hover {
   color: var(--fg);
 }
 
-/* =====================
-   Typography
-   ===================== */
+/* ============================
+   6. Typography
+   ============================ */
 h1 {
   font-size: var(--h1-size);
   font-weight: 700;
   margin-bottom: 1rem;
 }
-
 h2 {
   font-size: var(--h2-size);
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
-
 h3 {
   font-size: var(--h3-size);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
-p {
-  margin-bottom: 1rem;
-  color: var(--muted);
-}
-
-/* =====================
-   Site Header
-   ===================== */
+/* ============================
+   7. Site Header & Nav
+   ============================ */
 .site-header {
   position: fixed;
   top: 0;
@@ -95,23 +128,35 @@ p {
   background: rgba(18, 18, 18, 0.8);
   z-index: 100;
 }
-
 .site-header h1 a {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent);
 }
-
 .site-header nav {
   display: flex;
   gap: 2rem;
 }
 .site-header nav a {
   font-weight: 500;
+  position: relative;
+  padding-bottom: 2px;
   transition: color 0.3s ease;
 }
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.site-header nav a:hover::after {
+  width: 100%;
+}
 
-/* Mobile Burger */
+/* ============================
+   8. Burger Menu (Mobile)
+   ============================ */
 .burger {
   display: none;
   flex-direction: column;
@@ -125,12 +170,13 @@ p {
   border-radius: 2px;
   transition: transform 0.3s ease;
 }
-
 @media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
   .site-header nav {
     position: fixed;
-    top: 80px;
-    right: 0;
+    top: 80px; right: 0;
     background: var(--bg);
     flex-direction: column;
     width: 200px;
@@ -142,18 +188,15 @@ p {
   .site-header nav.open {
     transform: translateX(0);
   }
-  .burger {
-    display: flex;
-  }
 }
 
-/* =====================
-   Sections
-   ===================== */
+/* ============================
+   9. Sections + Scroll-Reveal
+   ============================ */
 .section {
   min-height: 100vh;
   padding: calc(var(--spacing) * 2) var(--spacing);
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -163,15 +206,30 @@ p {
   transform: none;
 }
 
-/* =====================
-   Cards & Projects
-   ===================== */
+/* ============================
+   10. Section Title Underline
+   ============================ */
+.section h2 {
+  display: inline-block;
+  position: relative;
+}
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 60px; height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ============================
+   11. Cards & Projects
+   ============================ */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
-
 .card {
   background: #1e1e1e;
   border-radius: var(--radius);
@@ -180,6 +238,7 @@ p {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--accent);
 }
 .card:hover {
   transform: translateY(-8px);
@@ -187,10 +246,9 @@ p {
 }
 .card img {
   width: 100%;
-  display: block;
+  height: 180px;
   object-fit: cover;
 }
-
 .card-content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -198,8 +256,7 @@ p {
   flex-direction: column;
 }
 .card-content h3 {
-  margin-top: 0;
-  color: var(--fg);
+  margin: 0 0 0.5rem;
 }
 .card-content p {
   flex-grow: 1;
@@ -218,94 +275,9 @@ p {
   background: #00c4d9;
 }
 
-/* =====================
-   Footer
-   ===================== */
-.site-footer {
-  padding: var(--spacing);
-  text-align: center;
-  background: #1a1a1a;
-  color: var(--muted);
-}
-.site-footer a {
-  color: var(--accent);
-  margin: 0 0.5rem;
-}
-
-/* =====================
-   Scroll Progress Bar
-   ===================== */
-#progress-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: transparent;
-  z-index: 200;
-}
-#progress-bar {
-  height: 100%;
-  background: var(--accent);
-  width: 0;
-  transition: width 0.1s ease;
-}
-
-.site-header nav a {
-  position: relative;
-  padding-bottom: 2px;
-}
-.site-header nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-.site-header nav a:hover::after {
-  width: 100%;
-}
-.section h2 {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-.section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-#about {
-  background: #1e1e1e;
-  border-radius: var(--radius);
-  padding: var(--spacing);
-}
-.about-img {
-  border: 4px solid var(--accent);
-  border-radius: var(--radius);
-  max-width: 250px;
-  float: right;
-  margin-left: var(--spacing);
-  object-fit: cover;
-}
-#about p {
-  color: var(--fg);
-}
-
-/* ① Scrollspy : lien actif dans le menu */
-.site-header nav a.active {
-  color: var(--fg);
-}
-
-/* ② Timeline (Expérience) */
+/* ============================
+   12. Timeline (Experience)
+   ============================ */
 .timeline {
   position: relative;
   padding-left: 40px;
@@ -330,17 +302,71 @@ p {
 }
 .timeline-content {
   background: #2a2a2a;
-  color: var(--fg);
   border-radius: var(--radius);
   padding: 1rem;
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* ③ Card “material” accent */
-.card {
-  border-top: 4px solid var(--accent);
+/* ============================
+   13. Footer
+   ============================ */
+.site-footer {
+  padding: var(--spacing);
+  text-align: center;
+  background: #1a1a1a;
+  color: var(--muted);
 }
-.card img {
-  height: 180px;
+.site-footer a {
+  color: var(--accent);
+  margin: 0 0.5rem;
+}
+
+/* ============================
+   14. Scroll Progress Bar
+   ============================ */
+#progress-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: transparent;
+  z-index: 200;
+}
+#progress-bar {
+  width: 0; height: 100%;
+  background: var(--accent);
+  transition: width 0.1s ease;
+}
+
+/* ============================
+   15. Scrollspy (Active Link)
+   ============================ */
+.site-header nav a.active {
+  color: var(--fg);
+}
+
+/* —————————————————————————————————————
+   Bloc “Hero” image entre deux barres
+   ————————————————————————————————————— */
+.hero-section {
+  max-width: 800px;
+  margin: calc(var(--spacing) * 2) auto;
+  text-align: center;
+}
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background: var(--accent);
+  margin: var(--spacing) 0;
+}
+
+.centered-img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: var(--spacing) auto;
   object-fit: cover;
+  border: 4px solid var(--accent);
+  border-radius: var(--radius);
 }

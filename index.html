@@ -7,12 +7,32 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Barre de progression -->
   <div id="progress-container">
     <div id="progress-bar"></div>
   </div>
+
+  <!-- Header chargé dynamiquement -->
   <div id="header"></div>
+
+  <!-- Hero commun à toutes les pages -->
+  <div class="hero-section">
+    <hr class="section-divider">
+    <img
+      src="images/APIXIT-cybersecurite-SASE-SSE.jpg"
+      alt="Illustration cybersécurité"
+      class="centered-img"
+    >
+    <hr class="section-divider">
+  </div>
+
+  <!-- Contenu de chaque vue (about, experience, projects, contact) -->
   <div id="app"></div>
+
+  <!-- Footer chargé dynamiquement -->
   <div id="footer"></div>
+
+  <!-- Script principal -->
   <script type="module" src="controllers/app.js"></script>
 </body>
 </html>
