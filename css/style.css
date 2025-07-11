@@ -37,35 +37,42 @@ html {
   scroll-behavior: smooth;
 }
 
+/* —————————————————————————————————————
+   3. Background full-screen fixe + overlay
+   ————————————————————————————————————— */
 body {
+  /* Image fixe en arrière-plan couvrant tout l’écran */
+  background: url('../images/APIXIT-cybersecurite-SASE-SSE.jpg')
+              center/cover no-repeat fixed;
+  /* Texte en clair pour contraste */
+  color: #fff;
   font-family: var(--font-base);
   line-height: 1.6;
   min-height: 100vh;
-  color: var(--fg);
 }
 
-/* ============================
-   3. Background Image + Overlay
-   ============================ */
-body {
-  background-image: url('../images/APIXIT-cybersecurite-SASE-SSE.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+/* Overlay sombre derrière tout le contenu */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   z-index: -1;
+}
+
+/* S’assurer que header, sections et footer passent au-dessus */
+.site-header,
+.section,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================
    4. Content Wrapper
    ============================ */
 .content-wrapper {
-  background: rgba(18, 18, 18, 0.8);
+  background: rgba(18, 18, 18, 0.6);
   padding: var(--spacing);
   border-radius: var(--radius);
   max-width: 800px;
@@ -342,31 +349,4 @@ h3 {
    ============================ */
 .site-header nav a.active {
   color: var(--fg);
-}
-
-/* —————————————————————————————————————
-   Bloc “Hero” image entre deux barres
-   ————————————————————————————————————— */
-.hero-section {
-  max-width: 800px;
-  margin: calc(var(--spacing) * 2) auto;
-  text-align: center;
-}
-
-.section-divider {
-  border: none;
-  height: 2px;
-  background: var(--accent);
-  margin: var(--spacing) 0;
-}
-
-.centered-img {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: var(--spacing) auto;
-  object-fit: cover;
-  border: 4px solid var(--accent);
-  border-radius: var(--radius);
 }
