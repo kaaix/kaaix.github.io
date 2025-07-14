@@ -1,27 +1,31 @@
-export const projects = [
-  {
-    title: 'Réseau de neurones C/SDL',
-    desc:  'Classification de spirales, backpropagation et interface graphique.',
-    link:  'https://github.com/kaaix/reseau-neurones-spirales'
-  },
-  {
-    title: 'Jeu JavaFX FlashCrash',
-    desc:  'Exploration de donjons, MVC, animations.',
-    link:  'https://github.com/kaaix/Splash_JAVA_FX'
-  }
-  // … ajoute ici d’autres projets
-];
+// src/models/data.js
+// src/models/data.js
+
 
 export const experiences = [
   {
-    title:  'Stage recherche – Moncton (Canada)',
-    period: 'Avr 2024 – Août 2024',
-    desc:   'Encadré par Éric Allain – génétique moléculaire, data analysis.'
+    title: 'Stage de recherche – Bioinformatique & génomique du cancer',
+    period: 'Mai 2025 – Présent',
+    desc:   'Conception et mise en place d’un pipeline de contrôle qualité pour données génomiques ; développement de scripts Python/Bash (RTG Tools), backend FastAPI, dashboards React.js & Plotly.js, containerisation Docker.'
   },
   {
-    title:  'Jeu JavaFX FlashCrash',
-    period: '2023',
-    desc:   'Exploration de donjons, animations MVC.'
+    title: 'Ouvrier d’exécution bâtiment – Événementiel JO Paris 2024',
+    period: 'Juillet 2024',
+    desc:   'Travaux de manutention et d’installation liés aux Jeux Olympiques et Paralympiques de Paris 2024.'
+  },
+  {
+    title: 'Manutentionnaire / Commercial – Île de loisirs de St-Quentin-en-Yvelines',
+    period: 'Juillet – Août 2024',
+    desc:   'Accompagnement à la location de vélos électriques pour les touristes.'
+  },
+  {
+    title: 'Opérateur Polyvalent – QAPA Osny (Amazon)',
+    period: 'Juin 2024',
+    desc:   'Montage et installation des bacs métalliques destinés aux systèmes de tri automatisé.'
+  },
+  {
+    title: 'Livreur / Coursier – Multicourses Poitiers (Amazon)',
+    period: 'Nov 2023 – Jan 2024',
+    desc:   'Accompagnement des personnes handicapées, livraison de colis.'
   }
-  // … ajoute ici d’autres expériences
 ];

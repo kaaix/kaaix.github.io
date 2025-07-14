@@ -1,4 +1,170 @@
-<section id="projects" class="section cards">
-  <h2>Projets</h2>
-  <div id="projects-list"></div>
+<!-- views/projects.html -->
+<section id="projects" class="section">
+  <!-- 1. Intro statique comme dans “À propos” -->
+  <div class="content-wrapper">
+    <h2>💻 Projets universitaires – Ubuntu &amp; Makefile</h2>
+    <p>
+      Tous les projets présentés ci-dessous ont été réalisés dans le cadre de ma formation universitaire
+      en informatique à l’Université de Poitiers. Ils ont été développés sous Ubuntu 22.04, et sont tous
+      structurés et exécutés via des Makefiles, garantissant un lancement propre, reproductible et conforme
+      aux standards professionnels.
+    </p>
+    <ul>
+      <li>🔗 Code source disponible sur <a href="https://github.com/kaaix" target="_blank">github.com/kaaix</a></li>
+      <li>
+        ⚠️ Ces projets sont protégés par le droit d’auteur. Toute copie, reproduction ou réutilisation sans
+        autorisation explicite sera considérée comme un acte de plagiat et pourra faire l’objet de poursuites judiciaires.
+      </li>
+    </ul>
+    <p><strong>Le projet <em>Splash_JAVA_FX</em> se compose de deux parties :</strong></p>
+    <ol>
+      <li>Version console en Java (1er semestre).</li>
+      <li>Interface JavaFX (2<sup>ème</sup> partie), plus riche et présentée ici.</li>
+    </ol>
+  </div>
+
+  <!-- 2. Container2 pour les cartes de projets -->
+  <div class="container2">
+    <h2>Mes Projets Universitaires</h2>
+    <p>
+      Tous mes projets sont développés sous Ubuntu 22.04, lancés via des Makefiles et disponibles
+      sur <a href="https://github.com/kaaix" target="_blank">github.com/kaaix</a>.
+    </p>
+
+    <!-- Grille de cartes -->
+    <div class="cards">
+      <!-- Projet 1 -->
+      <div class="card">
+        <div class="card-content">
+          <h3>Réseau de neurones C/SDL</h3>
+          <p>Classification de spirales (rouge/bleu) avec SDL2, back-propagation & interface graphique.</p>
+          <div class="buttons">
+            <a href="https://github.com/kaaix/reseau-neurones-spirales" target="_blank" class="button">
+              Voir sur GitHub
+            </a>
+            <a href="/annexe/reseau-neurones-sujet.pdf" download class="button download">
+              Télécharger le sujet (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Projet 2 : Splash_JAVA_FX -->
+      <div class="card">
+        <div class="card-content">
+          <h3>Splash_JAVA_FX</h3>
+          <p>Jeu d’exploration de donjons en JavaFX (MVC, animations, loot).</p>
+          <div class="buttons">
+            <a href="https://github.com/kaaix/Splash_JAVA_FX" target="_blank" class="button">
+              Voir sur GitHub
+            </a>
+            <a href="/annexe/Splash-console-sujet.pdf" download class="button download">
+              Télécharger le sujet (Console)
+            </a>
+            <a href="/annexe/Splash-javafx-sujet.pdf" download class="button download">
+              Télécharger le sujet (JavaFX)
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Projet 3 : WEB -->
+      <div class="card">
+        <div class="card-content">
+          <h3>Projet WEB</h3>
+          <p>Site web statique/dynamique développé dans le cadre de ma formation (HTML/CSS/JS).</p>
+          <div class="buttons">
+            <a href="https://github.com/kaaix/WEB" target="_blank" class="button">
+              Voir sur GitHub
+            </a>
+            <a href="/annexe/WEB-sujet.pdf" download class="button download">
+              Télécharger le sujet (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Captures dédiées à chaque projet -->
+    <h2>Captures – Réseau de neurones C/SDL</h2>
+    <div class="project-screenshots">
+      <figure>
+        <img src="/images/projet_capture/neurones-1.png" alt="Paramètres réseau de neurones">
+        <figcaption>Compilation et lancement via Makefile
+        Terminal montrant les commandes make clean et make, suivies de l’exécution de ./spirales, avec initialisation de SDL2 et SDL_ttf et affichage des logs d’information.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/neurones-2.png" alt="Classification en cours">
+        <figcaption>Menu principal : choix du mode de génération –  
+            R/B (spirales rouge/bleu), personnalisable ou dessin libre </figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/neurones-3.png" alt="Classification en cours">
+        <figcaption> Fenêtre de sélection – Train pour entraîner un nouveau réseau, Load pour charger un modèle existant, Dessiner pour un mode d’entrée manuel</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/neurones-4.png" alt="Frontière de décision en temps réel">
+        <figcaption> Apprentissage continu – visualisation en temps réel de la frontière de décision 
+         séparant les spirales rouges et bleues, mise à jour à chaque itération</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/neurones-5.png" alt="Classification multi-classes des spirales">
+        <figcaption>Apprentissage continu – visualisation de la classification multi-classes (5 catégories de spirales),  
+        chaque couleur représentant une classe distincte</figcaption>
+      </figure>
+       <figure>
+        <img src="/images/projet_capture/neurones-6.png" alt="Interface de dessin de données et visualisation de l’apprentissage">
+        <figcaption> Saisie manuelle des données : dessinez des points colorés (R/G/B), puis cliquez sur « Valider »  
+         pour entraîner en continu le modèle, dont la frontière de décision est affichée à gauche en temps réel.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Captures – Splash_JAVA_FX</h2>
+    <div class="project-screenshots">
+      <figure>
+        <img src="/images/projet_capture/Splash-1.png" alt="Interface console Splash">
+        <figcaption>Compilation et lancement – commandes 'make clean', 'make' puis 'make run',  
+         chargement de l’interface graphique et des paramètres depuis 'config/settings.conf'.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/Splash-2.png" alt="Menu principal JavaFX de Splash">
+        <figcaption>Écran d’accueil JavaFX – logo « Splash » et menu principal avec les boutons  
+        « Jouer », « Paramètres », « Éditeur de niveaux » et « Quitter » sur fond animé.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/Splash-3.png" alt="Sélection de l’arme pour l’Inkling">
+        <figcaption> Création de l’Inkling – saisie du nom et choix de l’arme (rouleau, pistolet ou fusil)
+         avant de commencer l’aventure</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/Splash-4.png" alt="Gameplay Splash_JAVA_FX">
+        <figcaption> Partie en jeu – déplacement du personnage avec les touches Z/S/Q/D,  
+         clic droit de la souris pour attaquer l’ennemi.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Captures – Projet WEB</h2>
+    <div class="project-screenshots">
+      <figure>
+        <img src="/images/projet_capture/web-home.png" alt="Accueil site WEB">
+        <figcaption>Page d’accueil du site de vente : barre de navigation avec liens Connexion / Créer un compte,  
+        header Université de Poitiers, footer détaillé et statut de visiteur anonyme.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/web-1.png" alt="Démarrage du serveur Symfony en local">
+        <figcaption> Démarrage du serveur local Symfony (PHP 8.2.28) via <code>symfony server:start --port=8001</code>,  
+        avec affichage des logs PHP et avertissements de configuration.</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/projet_capture/web-2.png" alt="Formulaire de création de compte">
+        <figcaption>  Page “Créer un compte” – formulaire d’inscription avec les champs  
+        Identifiant, Nom, Prénom, Date de naissance, Pays, Mot de passe  
+        et validation des conditions générales avant enregistrement..</figcaption>
+      </figure>
+        <figure>
+        <img src="/images/projet_capture/web-3.png" alt="Liste des produits disponibles">
+        <figcaption> Page “Produits disponibles” – connectée à une base de données via opérations CRUD;  
+         affichage dynamique des jeux (nom, prix, stock), sélection de la quantité et bouton « Ajouter » au panier.  
+         À chaque achat, le stock est automatiquement décrémenté en base.</figcaption>
+      </figure>
+    </div>
+  </div>
 </section>

@@ -1,4 +1,7 @@
-import { projects, experiences } from '../models/data.js';
+// controllers/app.js
+
+// Import uniquement les expériences (data.js reste utilisé pour la section Expérience)
+import { experiences } from '../models/data.js';
 
 // ————————————————
 // 0. Animation Matrix rouge
@@ -42,22 +45,22 @@ function initMatrix() {
   setInterval(draw, 33);
 }
 
-// Routes pour le rendu dynamique
+// Configuration des routes (charge les vues statiques dans views/)
 const routes = {
-  '': 'about',
-  '#about': 'about',
-  '#experience': 'experience',
-  '#projects': 'projects',
-  '#contact': 'contact'
+  '':           'about',
+  '#about':     'about',
+  '#experience':'experience',
+  '#projects':  'projects',
+  '#contact':   'contact'
 };
 
 // Charge le HTML d'une vue
 async function loadHTML(path) {
-  const res = await fetch(path);
-  return await res.text();
+  const res = await fetch(`views/${path}`);
+  return res.ok ? await res.text() : '';
 }
 
-// Scroll reveal pour les sections
+// Initialise le scroll reveal
 function initScrollReveal() {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -67,35 +70,19 @@ function initScrollReveal() {
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
 }
 
-// Rendu de la page selon la route
+// Rendu dynamique des vues
 async function renderPage() {
-  document.getElementById('header').innerHTML = await loadHTML('views/header.html');
-  document.getElementById('footer').innerHTML = await loadHTML('views/footer.html');
+  document.getElementById('header').innerHTML = await loadHTML('header.html');
+  document.getElementById('footer').innerHTML = await loadHTML('footer.html');
 
   const view = routes[window.location.hash] || 'about';
-  document.getElementById('app').innerHTML = await loadHTML(`views/${view}.html`);
+  document.getElementById('app').innerHTML = await loadHTML(`${view}.html`);
 
   initScrollReveal();
-  if (view === 'projects') renderProjects();
   if (view === 'experience') renderExperience();
-}
-
-// Génère la liste des projets
-function renderProjects() {
-  const container = document.getElementById('projects-list');
-  container.innerHTML = projects.map(p => `
-    <div class="card">
-      <div class="card-content">
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <a href="${p.link}" target="_blank" class="button">Voir sur GitHub</a>
-      </div>
-    </div>
-  `).join('');
 }
 
 // Génère la timeline d'expérience
@@ -113,12 +100,12 @@ function renderExperience() {
   `).join('');
 }
 
-// Met à jour la page au changement de hash
+// Écoute les changements de hash
 window.addEventListener('hashchange', renderPage);
 
 // Initialisation au chargement du DOM
 window.addEventListener('DOMContentLoaded', async () => {
-  // 1. Rendu dynamique des vues
+  // 1. Chargement des vues
   await renderPage();
 
   // 2. Démarrage de l'animation Matrix
@@ -126,13 +113,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   // 3. Burger menu mobile
   const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.site-header nav');
+  const nav    = document.querySelector('.site-header nav');
   burger.addEventListener('click', () => nav.classList.toggle('open'));
 
   // 4. Barre de progression du scroll
   const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollTop    = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
   });
