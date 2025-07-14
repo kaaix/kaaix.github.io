@@ -1,82 +1,248 @@
 <!-- views/about.html -->
 <section id="about" class="section">
-  <div class="content-wrapper">
-    <h2>À propos</h2>
-
-    <div class="qa">
-      <span class="icon">👤</span>
-      <div>
-        <h3>Qui suis-je&nbsp;?</h3>
-        <p>Je m’appelle <strong>El Mahdi Benfdal</strong>, étudiant en 3ᵉ année d’Informatique &amp; Mathématiques à l’Université de Poitiers.</p>
+  <!-- Hero à deux colonnes -->
+  <div class="container">
+    <div class="infoBox">
+      <h2>Étudiant L3 Informatique – Université de Poitiers</h2>
+      <p>
+        Cette formation pluridisciplinaire m’a apporté de solides compétences
+        en algorithmique, POO (Java, Python), développement web (Symfony, FastAPI),
+        bases de données (SQLite, MySQL, PostgreSQL) et intelligence artificielle.
+        J’ai également réalisé un stage de recherche en bioinformatique à Moncton (Canada).
+      </p>
+      <a href="annexe/CV.pdf" target="_blank">
+        <!-- SVG téléchargement inline -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             fill="currentColor" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 0 .5.5H5v4.5a.5.5 0 0 0 1 0V10.4h3.5a.5.5 0 0 0 0-1H6V5.4a.5.5 0 0 0-1 0v4h-4a.5.5 0 0 0-.5.5z"/>
+          <path d="M.5 1a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7.2a.5.5
+                   0 1 1-1 0V2H1v12h6.2a.5.5 0 1 1 0 1H1a1
+                   1 0 0 1-1-1V1z"/>
+        </svg>
+        Télécharger mon CV
+      </a>
+    </div>
+    <div class="box">
+      <div class="photo">
+        <img src="images/ma-photo.jpg" alt="Portrait de El Mahdi" width="200">
+      </div>
+      <div class="infoPresentation">
+        <p>
+          Passionné par le développement et la data science, je crée des applications
+          web robustes et intuitives.
+        </p>
+      </div>
+      <div class="reseaux">
+        <!-- LinkedIn SVG -->
+        <a href="https://www.linkedin.com/in/el-mahdi-benfdal-58482b346/" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02
+                     3.5 1.13 1 2.5 1s2.48 1.13 2.48 2.5zM.5
+                     8h4V24h-4V8zm7.5 0h3.8v2.2h.1C12.1 8.8
+                     13.6 8 15.7 8c4.1 0 4.9 2.7 4.9 6.1V24h-4
+                     v-8.4c0-2-0.1-4.5-2.7-4.5-2.7 0-3.1
+                     2.1-3.1 4.3V24h-4V8z"/>
+          </svg>
+        </a>
+        <!-- GitHub SVG -->
+        <a href="https://github.com/kaaix" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+               fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4
+                     7.9 10.9.6.1.8-.3.8-.6v-2.3c-3.2.7
+                     -3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2
+                     -1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1
+                     1.7 1.1 1 .1 1.5-.8 1.5-.8.9-1.6
+                     2.4-1.1 3-.8.1-.7.4-1.1.8-1.4
+                     -2.6-.3-5.4-1.3-5.4-5.8 0-1.3.5
+                     -2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2
+                     0 0 1-.3 3.3 1.2a11.3 11.3 0
+                     0 1 6 0c2.3-1.5 3.3-1.2 3.3
+                     -1.2.6 1.6.2 2.9.1 3.2.8.8 1.2
+                     1.9 1.2 3.2 0 4.6-2.8 5.5-5.4
+                     5.8.5.4.8 1.1.8 2.3v3.3c0 .3.2
+                     .7.8.6A10.5 10.5 0 0 0 23.5 12
+                     C23.5 5.7 18.3.5 12 .5z"/>
+          </svg>
+        </a>
       </div>
     </div>
+  </div>
 
+  <!-- Q&A existantes -->
+  <div class="content-wrapper">
+    <!-- Âge & Localisation -->
     <div class="qa">
       <span class="icon">🎂</span>
       <div>
-        <h3>Âge &amp; Localisation</h3>
-        <p>25 ans (né le 11 juillet 1999), basé à Poitiers, France.</p>
+        <h3>Âge & Localisation</h3>
+        <p>26 ans (né le 11 juillet 1999), basé à Poitiers et Île-de-France. </p>
       </div>
     </div>
-
-    <div class="qa">
+    <!-- Comment me contacter ? -->
+   <!-- <div class="qa">
       <span class="icon">📫</span>
       <div>
-        <h3>Comment me contacter&nbsp;?</h3>
+        <h3>Comment me contacter ?</h3>
         <ul>
           <li>Email : <a href="mailto:mehdibenfdal@gmail.com">mehdibenfdal@gmail.com</a></li>
-          <li>LinkedIn : <a href="https://www.linkedin.com/in/ton-profil" target="_blank">linkedin.com/in/ton-profil</a></li>
-          <li>GitHub : <a href="https://github.com/kaaix" target="_blank">github.com/kaaix</a></li>
+          <li>LinkedIn : <a href="https://www.linkedin.com/in/ton-profil">linkedin.com/in/ton-profil</a></li>
+          <li>GitHub : <a href="https://github.com/kaaix">github.com/kaaix</a></li>
         </ul>
       </div>
-    </div>
-
+    </div> -->
+    <!-- Parcours -->
     <div class="qa">
       <span class="icon">🎓</span>
       <div>
         <h3>Mon parcours</h3>
-        <p>
-          Cette formation pluridisciplinaire m’a permis d’acquérir de solides compétences :
-        </p>
+        <p>Cette formation pluridisciplinaire m’a permis d’acquérir :</p>
         <ul>
-          <li>Algorithmique &amp; structures de données</li>
-          <li>POO (Java, Python) &amp; systèmes</li>
-          <li>Développement web (Symfony, FastAPI, JavaScript)</li>
+          <li>Algorithmique & structures de données</li>
+          <li>POO (Java, Python) & systèmes</li>
+          <li>Web (Symfony, FastAPI, JavaScript)</li>
           <li>Bases de données (SQLite, MySQL, PostgreSQL)</li>
-          <li>IA &amp; apprentissage automatique</li>
+          <li>IA & apprentissage automatique</li>
           <li>Mathématiques appliquées (analyse, probabilités, statistiques)</li>
         </ul>
       </div>
     </div>
-
+    <!-- Stage -->
     <div class="qa">
       <span class="icon">💼</span>
       <div>
         <h3>Mon stage à l’étranger</h3>
-        <p>
-          J’ai réalisé un stage de fin d’année en bioinformatique à Moncton (Canada) :
-        </p>
+        <p>Stage bioinfo à Moncton (Canada) :</p>
         <ul>
           <li>Pipeline QC pour données VCF/GVCF</li>
-          <li>Scripts Python &amp; API FastAPI</li>
-          <li>Dashboard interactif avec React.js &amp; Plotly.js</li>
+          <li>Scripts Python & API FastAPI</li>
+          <li>Dashboard React.js & Plotly.js</li>
         </ul>
       </div>
     </div>
 
-    <div class="qa">
-      <span class="icon">🛠️</span>
-      <div>
-        <h3>Outils &amp; Technologies</h3>
-        <ul>
-          <li><strong>Langages :</strong> Java, C, JavaScript, Python, OCaml</li>
-          <li><strong>Frameworks :</strong> JavaFX, Symfony, FastAPI, Dash</li>
-          <li><strong>BDD :</strong> SQLite, MySQL, PostgreSQL</li>
-          <li><strong>BioInfo :</strong> RTG Tools, bcftools</li>
-          <li><strong>Dev &amp; CI :</strong> Git, Docker, GitHub Actions</li>
-        </ul>
-      </div>
-    </div>
+  </div>
+
+  <!-- Container2 : méthodes d'acquisition -->
+  <div class="container2">
+    <h2>Toutes ces connaissances ont été acquises de différentes façons :</h2>
+    <ul>
+      <li>Grâce à mes études en L3 Informatique & Mathématiques à Poitiers</li>
+      <li>Par ma propre initiative, en réalisant des projets personnels</li>
+      <li>En relevant des challenges techniques et en effectuant des recherches approfondies</li>
+    </ul>
+  </div>
+
+  <!-- Container3 : compétences & outils -->
+  <div class="container3">
+    <h2>Mes compétences en développement 👨‍💻</h2>
+    <ul class="competences-list">
+      <li>
+        <img src="images/icone/html.png" alt="HTML">
+        <p>HTML – Structure des pages web</p>
+      </li>
+      <li>
+        <img src="images/icone/css.png" alt="CSS">
+        <p>CSS – Mise en page & design</p>
+      </li>
+      <li>
+        <img src="images/icone/js.png" alt="JavaScript">
+        <p>JavaScript – Interactions dynamiques</p>
+      </li>
+      <li>
+        <img src="images/icone/php.png" alt="PHP">
+        <p>PHP – Développement back-end</p>
+      </li>
+      <li>
+        <img src="images/icone/mysql.png" alt="MySQL">
+        <p>MySQL – Gestion de bases de données</p>
+      </li>
+      <li>
+        <img src="images/icone/python.png" alt="Python">
+        <p>Python –  Les bases</p>
+      </li>
+      <li>
+        <img src="images/icone/ocaml.webp" alt="Algorithmique avancée">
+        <p>Ocaml -Algorithmique avancée</p>
+      </li>
+      <li>
+        <img src="images/icone/c.png" alt="C">
+        <p>C – Programmation avancée</p>
+      </li>
+    <li>
+      <img src="images/icone/structures.jpg" alt="Structures de données">
+      <p> Structures de données avancées</p>
+    </li>
+    <li>
+      <img src="images/icone/poo.png" alt="POO avancée">
+      <p> Java - Programmation orientée objet avancée</p>
+    </li>
+    <li>
+      <img src="images/icone/systeme.png" alt="Systèmes d'exploitation">
+      <p>Systèmes d’exploitation - Gestion des processus, de la mémoire et des systèmes de fichiers</p>
+    </li>
+    <li>
+      <img src="images/icone/reseau.png" alt="Réseaux">
+      <p>Réseaux & protocoles</p>
+    </li>
+    <li>
+      <img src="images/icone/bdd.png" alt="Bases de données">
+      <p>Sql(oracle) - Bases de données avancées</p>
+    </li>
+    </ul>
+
+    <h2>Mes outils / logiciels ⚙️</h2>
+    <ul class="competences-list">
+      <li>
+        <img src="images/icone/Ubuntu.webp" alt="Ubuntu - WSL">
+        <p>
+          Ubuntu - WSL  
+          Utilisation des commandes Linux écriture de scripts Makefile 
+          et réalisation de projets en ligne de commande.
+        </p>
+      </li>
+      <li>
+        <img src="images/icone/cl.png" alt="CLion">
+        <p>CL – CLion : IDE C</p>
+      </li>
+      <li>
+        <img src="images/icone/ij.png" alt="IntelliJ IDEA">
+        <p>IJ – IntelliJ IDEA : IDE Java</p>
+      </li>
+      <li>
+        <img src="images/icone/ps.png" alt="PhpStorm">
+        <p>PS – PhpStorm : IDE PHP</p>
+      </li>
+      <li>
+        <img src="images/icone/dg.png" alt="DataGrip">
+        <p>DG – DataGrip : IDE bases de données</p>
+      </li>
+      <li>
+        <img src="images/icone/pc.png" alt="PyCharm">
+        <p>PC – PyCharm : IDE Python</p>
+      </li>
+      <li>
+        <img src="images/icone/ws.png" alt="WebStorm">
+        <p>WS – WebStorm : IDE JS/TS</p>
+      </li>
+      <li>
+        <img src="images/icone/docker.webp" alt="Docker">
+        <p>Docker – Conteneurisation</p>
+      </li>
+      <li>
+        <img src="images/icone/vscode.png" alt="VS Code">
+        <p>VS Code – IDE moderne</p>
+      </li>
+      <li>
+        <img src="images/icone/github.webp" alt="GitHub">
+        <p>GitHub – Collaboration & dépôt de projet</p>
+      </li>
+      <li>
+        <img src="images/icone/virtualbox.png" alt="VirtualBox">
+        <p>VirtualBox – Virtualisation</p>
+      </li>
+    </ul>
 
   </div>
 </section>
