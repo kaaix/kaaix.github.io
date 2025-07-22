@@ -3,11 +3,11 @@
 
 
 export const experiences = [
-  {
-    title: 'Stage de recherche – Bioinformatique & génomique du cancer',
-    period: 'Mai 2025 – Présent',
-    desc:   'Conception et mise en place d’un pipeline de contrôle qualité pour données génomiques ; développement de scripts Python/Bash (RTG Tools), backend FastAPI, dashboards React.js & Plotly.js, containerisation Docker.'
-  },
+{
+  "title": "Stage de recherche – Bioinformatique & Génomique du Cancer (Canada, Moncton)",
+  "period": "Mai 2025 – Présent",
+  "desc": "Développement d’un pipeline de contrôle qualité pour données génomiques : scripting Python/Bash (RTG Tools), backend en FastAPI, dashboards interactifs avec React.js & Plotly.js, déploiement via Docker."
+},
   {
     title: 'Ouvrier d’exécution bâtiment – Événementiel JO Paris 2024',
     period: 'Juillet 2024',
