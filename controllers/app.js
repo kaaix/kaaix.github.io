@@ -47,11 +47,11 @@ function initMatrix() {
 
 // Configuration des routes (charge les vues statiques dans views/)
 const routes = {
-  '':           'about',
-  '#about':     'about',
-  '#experience':'experience',
-  '#projects':  'projects',
-  '#contact':   'contact'
+  '':            'about',
+  '#about':      'about',
+  '#experience': 'experience',
+  '#projects':   'projects',
+  '#contact':    'contact'
 };
 
 // Charge le HTML d'une vue
@@ -70,37 +70,66 @@ function initScrollReveal() {
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
+
+  document
+    .querySelectorAll('.section')
+    .forEach(sec => observer.observe(sec));
+}
+
+// Active le burger menu (à appeler après avoir chargé le header)
+function initBurgerMenu() {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.site-header nav');
+
+  if (!burger || !nav) return;
+
+  burger.onclick = () => {
+    nav.classList.toggle('open');
+  };
 }
 
 // Rendu dynamique des vues
 async function renderPage() {
+  // Charger header & footer
   document.getElementById('header').innerHTML = await loadHTML('header.html');
   document.getElementById('footer').innerHTML = await loadHTML('footer.html');
 
+  // Charger la vue principale
   const view = routes[window.location.hash] || 'about';
   document.getElementById('app').innerHTML = await loadHTML(`${view}.html`);
 
+  // Re-brancher le burger maintenant que le header existe
+  initBurgerMenu();
+
+  // Effet de reveal
   initScrollReveal();
-  if (view === 'experience') renderExperience();
+
+  // Rendu dynamique de la timeline d'expérience
+  if (view === 'experience') {
+    renderExperience();
+  }
 }
 
 // Génère la timeline d'expérience
 function renderExperience() {
   const container = document.getElementById('experience-list');
-  container.innerHTML = experiences.map(e => `
-    <div class="timeline-item">
-      <span class="timeline-icon"></span>
-      <div class="timeline-content">
-        <h3>${e.title}</h3>
-        <span class="date">${e.period}</span>
-        <p>${e.desc}</p>
+  if (!container) return;
+
+  container.innerHTML = experiences
+    .map(e => `
+      <div class="timeline-item">
+        <span class="timeline-icon"></span>
+        <div class="timeline-content">
+          <h3>${e.title}</h3>
+          <span class="date">${e.period}</span>
+          <p>${e.desc}</p>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `)
+    .join('');
 }
 
-// Écoute les changements de hash
+// Écoute les changements de hash (navigation)
 window.addEventListener('hashchange', renderPage);
 
 // Initialisation au chargement du DOM
@@ -111,26 +140,31 @@ window.addEventListener('DOMContentLoaded', async () => {
   // 2. Démarrage de l'animation Matrix
   initMatrix();
 
-  // 3. Burger menu mobile
-  const burger = document.querySelector('.burger');
-  const nav    = document.querySelector('.site-header nav');
-  burger.addEventListener('click', () => nav.classList.toggle('open'));
-
-  // 4. Barre de progression du scroll
+  // 3. Barre de progression du scroll
   const progressBar = document.getElementById('progress-bar');
-  window.addEventListener('scroll', () => {
-    const scrollTop    = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
-  });
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
+    });
+  }
 
-  // 5. Scrollspy (lien actif)
+  // 4. Scrollspy (lien actif)
   const links = document.querySelectorAll('.site-header nav a');
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.section');
-    let idx = sections.length;
-    while (--idx && window.scrollY + 100 < sections[idx].offsetTop) {}
-    links.forEach(a => a.classList.remove('active'));
-    links[idx].classList.add('active');
-  });
+  if (links.length > 0) {
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.section');
+      let idx = sections.length;
+
+      while (--idx && window.scrollY + 100 < sections[idx].offsetTop) {}
+
+      links.forEach(a => a.classList.remove('active'));
+      if (links[idx]) {
+        links[idx].classList.add('active');
+      }
+    });
+  }
 });

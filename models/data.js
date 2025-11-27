@@ -5,7 +5,7 @@
 export const experiences = [
 {
   "title": "Stage de recherche – Bioinformatique & Génomique du Cancer (Canada, Moncton)",
-  "period": "Mai 2025 – Présent",
+  "period": "Mai 2025 – Août 2025 (5 mois) ",
   "desc": "Développement d’un pipeline de contrôle qualité pour données génomiques : scripting Python/Bash (RTG Tools), backend en FastAPI, dashboards interactifs avec React.js & Plotly.js, déploiement via Docker."
 },
   {

@@ -733,3 +733,60 @@ p {
   max-width: 500px;         /* limite la largeur des paragraphes */
   margin: 0;                /* horizontalement géré par flex + gap */
 }
+
+/*  ---------------------------------------------*/ 
+
+#contact h2 {
+  margin-bottom: var(--spacing);
+}
+
+#contact p {
+  max-width: 500px;         /* limite la largeur des paragraphes */
+  margin: 0;                /* horizontalement géré par flex + gap */
+}
+
+/* ============================
+   20. Ajustements mobile généraux
+   ============================ */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+
+  .site-header {
+    padding: 0.5rem 1rem;
+  }
+
+  .section {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .container {
+    margin-top: 120px;
+  }
+
+  .box {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .infoPresentation {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .container2,
+  .container3 {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
